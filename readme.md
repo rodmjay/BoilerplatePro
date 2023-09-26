@@ -1,4 +1,4 @@
-# Solution Stream Template Projects
+# Template Projects
 
 ## Features
 
