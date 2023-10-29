@@ -4,7 +4,7 @@
       "Server=(localdb)\\mssqllocaldb;Database=BoilerplatePro;Trusted_Connection=True;MultipleActiveResultSets=true"
   },
   "AppSettings": {
-    "Authority": "https://localhost:44328",
+    "Authority": "https://localhost:44319",
     "ApiUrl": "https://localhost:5001",
     "JsClientUrl": "https://localhost:5003",
     "MvcClientUrl": "https://localhost:5002",

@@ -4,11 +4,13 @@
 
 #endregion
 
+using System.Threading.Tasks;
+using BoilerplatePro.Api;
 using BoilerplatePro.Testing.Bases;
 using IdentityModel.Client;
 using NUnit.Framework;
 
-namespace BoilerplatePro.Api.Testing;
+namespace Boilerplate.Api.Testing;
 
 public abstract class BaseApiTest : IntegrationTest<BaseApiTest, Startup>
 {
@@ -25,7 +27,7 @@ public abstract class BaseApiTest : IntegrationTest<BaseApiTest, Startup>
     {
         await DeleteDatabase();
     }
-    
+
 
 
 }

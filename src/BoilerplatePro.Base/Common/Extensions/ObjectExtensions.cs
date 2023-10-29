@@ -8,13 +8,32 @@
 #endregion
 
 using System;
+using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Xml.Linq;
 using Newtonsoft.Json;
 
 namespace BoilerplatePro.Base.Common.Extensions
 {
     public static class ObjectExtensions
     {
+        public static string ToQueryString(this object obj)
+        {
+            if (obj == null)
+            {
+                throw new ArgumentNullException(nameof(obj));
+            }
+
+            var properties = obj.GetType().GetProperties();
+            var keyValuePairs = properties.Select(property =>
+            {
+                var key = Uri.EscapeDataString(property.Name);
+                var value = Uri.EscapeDataString(property.GetValue(obj)?.ToString() ?? "");
+                return $"{key}={value}";
+            });
+
+            return string.Join("&", keyValuePairs);
+        }
         public static string GetLogMessage<T>(string message, [CallerMemberName] string callerName = null)
         {
             return $"[{nameof(T)}.{callerName}] - {message}";

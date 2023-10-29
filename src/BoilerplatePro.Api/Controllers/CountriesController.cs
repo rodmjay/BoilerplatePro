@@ -6,6 +6,7 @@
 
 using System;
 using System.Threading.Tasks;
+using BoilerplatePro.Api.Interfaces;
 using BoilerplatePro.Base.Common.Middleware.Bases;
 using BoilerplatePro.Base.Common.Models;
 using BoilerplatePro.Base.Geography.Extensions;
@@ -16,7 +17,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BoilerplatePro.Api.Controllers;
 
-public class CountriesController : BaseController
+public class CountriesController : BaseController, ICountriesController
 {
     private readonly ICountryStore _countryService;
     private readonly IEnabledCountryService _enabledCountryService;

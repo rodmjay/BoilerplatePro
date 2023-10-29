@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BoilerplatePro.Base.common.data.migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20231029050333_InitialMigration")]
+    [Migration("20231029155827_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -6562,7 +6562,7 @@ namespace BoilerplatePro.Base.common.data.migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIVVeEi6VZ2YB3JUwyExMUFOL9E6rS4Px8AHXK0osa6ncEsGkS0mFtBesBmGurNFuA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJE0YA3a/aYii33qDmpwpWDwfvKFe+eKJl+PLg22GkwwbutdEZ6y7iS/piKPOeA7Nw==",
                             PhoneNumber = "123-123-1234",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
@@ -6885,7 +6885,7 @@ namespace BoilerplatePro.Base.common.data.migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2023, 10, 29, 5, 3, 33, 192, DateTimeKind.Utc).AddTicks(7055),
+                            Created = new DateTime(2023, 10, 29, 15, 58, 26, 998, DateTimeKind.Utc).AddTicks(7719),
                             DisplayName = "My API",
                             Emphasize = false,
                             Enabled = true,

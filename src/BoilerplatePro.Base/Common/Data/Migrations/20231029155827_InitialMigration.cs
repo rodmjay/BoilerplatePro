@@ -915,7 +915,7 @@ namespace BoilerplatePro.Base.common.data.migrations
                 schema: "IdentityServer",
                 table: "ApiScope",
                 columns: new[] { "Id", "Created", "Description", "DisplayName", "Emphasize", "Enabled", "LastAccessed", "Name", "NonEditable", "Required", "ShowInDiscoveryDocument", "Updated" },
-                values: new object[] { 1, new DateTime(2023, 10, 29, 5, 3, 33, 192, DateTimeKind.Utc).AddTicks(7055), null, "My API", false, true, null, "api1", false, false, true, null });
+                values: new object[] { 1, new DateTime(2023, 10, 29, 15, 58, 26, 998, DateTimeKind.Utc).AddTicks(7719), null, "My API", false, true, null, "api1", false, false, true, null });
 
             migrationBuilder.InsertData(
                 schema: "IdentityServer",
@@ -1839,7 +1839,7 @@ namespace BoilerplatePro.Base.common.data.migrations
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 1, 0, "20f1b6e7-64b7-4658-9f5a-ca9b73da374e", "admin@admin.com", true, "Rod", "Johnson", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEIVVeEi6VZ2YB3JUwyExMUFOL9E6rS4Px8AHXK0osa6ncEsGkS0mFtBesBmGurNFuA==", "123-123-1234", false, "", false, "admin@admin.com" });
+                values: new object[] { 1, 0, "20f1b6e7-64b7-4658-9f5a-ca9b73da374e", "admin@admin.com", true, "Rod", "Johnson", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAIAAYagAAAAEJE0YA3a/aYii33qDmpwpWDwfvKFe+eKJl+PLg22GkwwbutdEZ6y7iS/piKPOeA7Nw==", "123-123-1234", false, "", false, "admin@admin.com" });
 
             migrationBuilder.InsertData(
                 schema: "IdentityServer",
