@@ -54,7 +54,7 @@ namespace Boilerplate.Api.Testing.Tests
         public class TheDisableCountryMethod : CountriesControllerTest
         {
             [Test]
-            public async Task CanEnableCountry()
+            public async Task CanDisableCountry()
             {
                 var enabledResult = await EnableCountry("US");
                 Assert.IsTrue(enabledResult.Succeeded);
@@ -68,7 +68,7 @@ namespace Boilerplate.Api.Testing.Tests
         public Task<PagedList<CountryOutput>> GetCountries(CountryQuery query, PagingQuery paging)
         {
             var querystring = UrlHelper.CombineObjectsToUrl(query, paging);
-            return DoGet<PagedList<CountryOutput>>($"v1.0/countries/?{querystring}");
+            return DoGetAnonymous<PagedList<CountryOutput>>($"v1.0/countries/?{querystring}");
         }
 
         public Task<CountryWithStateProvincesOutput> GetCountry(string iso2)

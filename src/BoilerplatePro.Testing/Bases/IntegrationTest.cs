@@ -40,6 +40,7 @@ public abstract class IntegrationTest<TFixture, TStartup> where TStartup : class
 
     protected IServiceProvider ServiceProvider { get; private set; }
     protected HttpClient ApiClient { get; private set; }
+    protected HttpClient AnonymousApiClient { get; private set; }
 
 
     private void InitializeIdentityServerProxy()
@@ -86,6 +87,7 @@ public abstract class IntegrationTest<TFixture, TStartup> where TStartup : class
         _context = ServiceProvider.GetRequiredService<DbContextOptions<ApplicationContext>>();
 
         ApiClient = apiServer.CreateClient();
+        AnonymousApiClient = apiServer.CreateClient();  
     }
 
     protected async Task<string> GetAccessToken(string username, string password)
@@ -133,12 +135,22 @@ public abstract class IntegrationTest<TFixture, TStartup> where TStartup : class
 
     protected async Task<TOutput> DoGet<TOutput>(string url)
     {
+        return await DoGet<TOutput>(ApiClient, url);
+    }
+
+    private async Task<TOutput> DoGet<TOutput>(HttpClient client, string url)
+    {
         var response = await ApiClient.GetAsync(url);
         Assert.True(response.IsSuccessStatusCode);
-        
+
         var result = response.Content.DeserializeObject<TOutput>();
 
         return result;
+    }
+
+    protected async Task<TOutput> DoGetAnonymous<TOutput>(string url)
+    {
+        return await DoGet<TOutput>(AnonymousApiClient, url);
     }
 
     protected async Task<TOutput> DoPut<TInput, TOutput>(string url, TInput input)
