@@ -5,21 +5,26 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using BoilerplatePro.Api.Interfaces;
 using BoilerplatePro.Base.Common.Middleware.Bases;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BoilerplatePro.Api.Controllers;
 
-public class IdentityController : BaseController
+public class IdentityController : BaseController, IIdentityController
 {
-    protected IdentityController(IServiceProvider serviceProvider) : base(serviceProvider)
+    public IdentityController(IServiceProvider serviceProvider) : base(serviceProvider)
     {
     }
 
     [HttpGet]
-    public IActionResult Get()
+    public Task<Dictionary<string, List<string>>> GetCurrentIdentity()
     {
-        return new JsonResult(from c in User.Claims select new {c.Type, c.Value});
+        var dictionary = User.Claims.GroupBy(x => x.Type).ToDictionary(x => x.Key, x => x.Select(c=>c.Value).ToList());
+
+        return Task.FromResult(dictionary);
     }
 }

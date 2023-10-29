@@ -17,6 +17,7 @@ using BoilerplatePro.Testing.Services;
 using Duende.IdentityServer.Models;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -134,7 +135,7 @@ public abstract class IntegrationTest<TFixture, TStartup> where TStartup : class
     {
         var response = await ApiClient.GetAsync(url);
         Assert.True(response.IsSuccessStatusCode);
-
+        
         var result = response.Content.DeserializeObject<TOutput>();
 
         return result;
