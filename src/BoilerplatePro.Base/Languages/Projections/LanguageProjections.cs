@@ -13,7 +13,11 @@ namespace BoilerplatePro.Base.Languages.Projections
     {
         public LanguageProjections()
         {
-            CreateMap<Language, LanguageOutput>();
+            CreateMap<Language, LanguageOutput>().IncludeAllDerived();
+
+            CreateMap<Language, LanguageDetails>()
+                .ForMember(x=>x.Countries, opt=>opt.MapFrom(x=>x.Countries.Select(lc => lc.Country)))
+                .IncludeAllDerived();
 
 
         }

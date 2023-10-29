@@ -11,6 +11,7 @@ using BoilerplatePro.Base.Common.Data.Contexts;
 using BoilerplatePro.Base.Common.Middleware.Extensions;
 using BoilerplatePro.Base.Common.Settings;
 using BoilerplatePro.Base.Geography.Extensions;
+using BoilerplatePro.Base.Languages.Extensions;
 using BoilerplatePro.Base.Users.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -46,7 +47,8 @@ public class Startup
             .AddCaching()
             .AddUserAccessor()
             .AddUserDependencies()
-            .AddGeographyDependencies();
+            .AddGeographyDependencies()
+            .AddLanguageDependencies();
 
         var webAppBuilder = builder.ConfigureWebApp(Environment);
 

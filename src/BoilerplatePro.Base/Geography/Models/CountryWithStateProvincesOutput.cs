@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace BoilerplatePro.Base.Geography.Models
 {
-    public class CountryWithStateProvincesOutput : CountryOutput
+    public class CountryWithStateProvincesOutput : CountryDetails
     {
         public CountryWithStateProvincesOutput()
         {

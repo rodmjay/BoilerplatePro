@@ -20,7 +20,11 @@ namespace BoilerplatePro.Base.Geography.Projections
         public CountryProjections()
         {
             CreateMap<Country, CountryOutput>()
-                .ForMember(x=>x.Languages, opt=>opt.MapFrom(x=>x.Languages.Select(l=>l.Language)))
+                .IncludeAllDerived();
+
+            CreateMap<Country, CountryDetails>()
+                .ForMember(x => x.Languages, opt => opt.MapFrom(x => x.Languages.Select(l => l.Language)))
+                .ForMember(x => x.Currencies, opt => opt.MapFrom(x => x.Currencies.Select(l => l.Currency)))
                 .IncludeAllDerived();
 
             CreateMap<Country, CountryWithStateProvincesOutput>()

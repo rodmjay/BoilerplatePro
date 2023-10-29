@@ -9,6 +9,7 @@
 
 using System.Collections.Generic;
 using BoilerplatePro.Base.Common.Data.Bases;
+using BoilerplatePro.Base.Currencies.Entities;
 using BoilerplatePro.Base.Geography.Interfaces;
 using BoilerplatePro.Base.Languages.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -27,6 +28,8 @@ namespace BoilerplatePro.Base.Geography.Entities
         public string Iso3 { get; set; }
         public int? NumberCode { get; set; }
         public int PhoneCode { get; set; }
+
+        public ICollection<CountryCurrency> Currencies { get; set; }
 
         public override void Configure(EntityTypeBuilder<Country> builder)
         {

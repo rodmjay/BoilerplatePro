@@ -65,10 +65,10 @@ namespace Boilerplate.Api.Testing.Tests
             }
         }
 
-        public Task<PagedList<CountryOutput>> GetCountries(CountryQuery query, PagingQuery paging)
+        public Task<PagedList<CountryDetails>> GetCountries(CountryQuery query, PagingQuery paging)
         {
             var querystring = UrlHelper.CombineObjectsToUrl(query, paging);
-            return DoGetAnonymous<PagedList<CountryOutput>>($"v1.0/countries/?{querystring}");
+            return DoGetAnonymous<PagedList<CountryDetails>>($"v1.0/countries/?{querystring}");
         }
 
         public Task<CountryWithStateProvincesOutput> GetCountry(string iso2)

@@ -157,6 +157,7 @@ namespace BoilerplatePro.Base.Common.Data.Contexts
         private void SeedCurrencies(ModelBuilder builder)
         {
             builder.Entity<Currency>().Seed("currencies.csv");
+            builder.Entity<CountryCurrency>().Seed("countryCurrency.csv");
         }
 
         protected override void SeedDatabase(ModelBuilder builder)

@@ -14,6 +14,7 @@
 		<None Remove="Seeding\csv\clientScopes.csv" />
 		<None Remove="Seeding\csv\clientSecrets.csv" />
 		<None Remove="Seeding\csv\countries.csv" />
+		<None Remove="Seeding\csv\countryCurrency.csv" />
 		<None Remove="Seeding\csv\currencies.csv" />
 		<None Remove="Seeding\csv\enabledCountries.csv" />
 		<None Remove="Seeding\csv\identityResourceClaims.csv" />
@@ -55,6 +56,9 @@
 		</EmbeddedResource>
 		<EmbeddedResource Include="Seeding\csv\clientSecrets.csv">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="Seeding\csv\countryCurrency.csv">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Seeding\csv\enabledCountries.csv">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -147,5 +151,7 @@
 
 	<ItemGroup>
 	  <Folder Include="Common\Data\Migrations\" />
+	  <Folder Include="Currencies\Extensions\" />
+	  <Folder Include="Currencies\Services\" />
 	</ItemGroup>
 </Project>

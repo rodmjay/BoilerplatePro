@@ -26,6 +26,5 @@ namespace BoilerplatePro.Base.Geography.Models
         public int? NumberCode { get; set; }
 
         public int PhoneCode { get; set; }
-        public List<LanguageOutput> Languages { get; set; }
     }
 }
