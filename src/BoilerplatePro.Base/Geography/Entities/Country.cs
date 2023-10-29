@@ -12,6 +12,7 @@ using BoilerplatePro.Base.Common.Data.Bases;
 using BoilerplatePro.Base.Currencies.Entities;
 using BoilerplatePro.Base.Geography.Interfaces;
 using BoilerplatePro.Base.Languages.Entities;
+using BoilerplatePro.Base.Timezones.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BoilerplatePro.Base.Geography.Entities
@@ -21,6 +22,7 @@ namespace BoilerplatePro.Base.Geography.Entities
         public ICollection<StateProvince> StateProvinces { get; set; }
         public virtual ICollection<LanguageCountry> Languages { get; set; }
         public virtual ICollection<EnabledCountry> Users { get; set; }
+        public virtual ICollection<CountryTimezone> Timezones { get; set; }
         public string Iso2 { get; set; }
 
         public string Name { get; set; }

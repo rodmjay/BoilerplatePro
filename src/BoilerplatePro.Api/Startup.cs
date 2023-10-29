@@ -13,6 +13,7 @@ using BoilerplatePro.Base.Common.Settings;
 using BoilerplatePro.Base.Currencies.Extensions;
 using BoilerplatePro.Base.Geography.Extensions;
 using BoilerplatePro.Base.Languages.Extensions;
+using BoilerplatePro.Base.Timezones.Extensions;
 using BoilerplatePro.Base.Users.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -50,6 +51,7 @@ public class Startup
             .AddUserDependencies()
             .AddGeographyDependencies()
             .AddCurrencyDependencies()
+            .AddTimezoneDependencies()
             .AddLanguageDependencies();
 
         var webAppBuilder = builder.ConfigureWebApp(Environment);

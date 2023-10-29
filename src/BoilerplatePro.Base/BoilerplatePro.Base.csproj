@@ -15,6 +15,7 @@
 		<None Remove="Seeding\csv\clientSecrets.csv" />
 		<None Remove="Seeding\csv\countries.csv" />
 		<None Remove="Seeding\csv\countryCurrency.csv" />
+		<None Remove="Seeding\csv\countryTimezone.csv" />
 		<None Remove="Seeding\csv\currencies.csv" />
 		<None Remove="Seeding\csv\enabledCountries.csv" />
 		<None Remove="Seeding\csv\identityResourceClaims.csv" />
@@ -86,6 +87,9 @@
 		</EmbeddedResource>
 		<EmbeddedResource Include="Seeding\csv\roles.csv">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="Seeding\csv\countryTimezone.csv">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Seeding\csv\userRoles.csv">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

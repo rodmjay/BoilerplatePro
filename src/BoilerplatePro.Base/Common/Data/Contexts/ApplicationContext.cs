@@ -152,6 +152,7 @@ namespace BoilerplatePro.Base.Common.Data.Contexts
         private void SeedTimezones(ModelBuilder builder)
         {
             builder.Entity<Timezone>().Seed("timezones.csv");
+            builder.Entity<CountryTimezone>().Seed("countryTimezone.csv");
         }
 
         private void SeedCurrencies(ModelBuilder builder)
