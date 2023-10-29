@@ -1,9 +1,6 @@
-#region Header
+#region Header Info
 
-// /*
-
-// Author: Rod Johnson, Architect, rodmjay@gmail.com
-// */
+// Copyright 2023 Rod Johnson.  All rights reserved
 
 #endregion
 
@@ -13,28 +10,27 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
-namespace BoilerplatePro.Api.Controllers.Api
-{
-    [ExcludeFromCodeCoverage]
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            BuildHost(args)
-                .Init();
-        }
+namespace BoilerplatePro.Api;
 
-        public static IHostBuilder BuildHost(string[] args)
-        {
-            return Host.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration(HostBuilderExtensions.Configure)
-                .ConfigureWebHostDefaults(builder =>
-                {
-                    builder
-                        .ConfigureLogging(HostBuilderExtensions.ConfigureLogging)
-                        .UseSerilog()
-                        .UseStartup<Startup>();
-                });
-        }
+[ExcludeFromCodeCoverage]
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        BuildHost(args)
+            .Init();
+    }
+
+    public static IHostBuilder BuildHost(string[] args)
+    {
+        return Host.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration(HostBuilderExtensions.Configure)
+            .ConfigureWebHostDefaults(builder =>
+            {
+                builder
+                    .ConfigureLogging(HostBuilderExtensions.ConfigureLogging)
+                    .UseSerilog()
+                    .UseStartup<Startup>();
+            });
     }
 }

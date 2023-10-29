@@ -1,9 +1,6 @@
-﻿#region Header
+﻿#region Header Info
 
-// /*
-
-// Author: Rod Johnson, Architect, rodmjay@gmail.com
-// */
+// Copyright 2023 Rod Johnson.  All rights reserved
 
 #endregion
 
@@ -17,40 +14,39 @@ using BoilerplatePro.Base.Geography.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BoilerplatePro.Api.Controllers.Api.Controllers
+namespace BoilerplatePro.Api.Controllers;
+
+public class CountriesController : BaseController
 {
-    public class CountriesController : BaseController
+    private readonly ICountryStore _countryService;
+    private readonly IEnabledCountryService _enabledCountryService;
+
+    public CountriesController(
+        ICountryService countryService,
+        IEnabledCountryService enabledCountryService,
+        IServiceProvider serviceProvider) : base(serviceProvider)
     {
-        private readonly ICountryStore _countryService;
-        private readonly IEnabledCountryService _enabledCountryService;
+        _countryService = countryService;
+        _enabledCountryService = enabledCountryService;
+    }
 
-        public CountriesController(
-            ICountryService countryService,
-            IEnabledCountryService enabledCountryService,
-            IServiceProvider serviceProvider) : base(serviceProvider)
-        {
-            _countryService = countryService;
-            _enabledCountryService = enabledCountryService;
-        }
+    [HttpGet]
+    [AllowAnonymous]
+    public Task<PagedList<CountryDto>> GetCountries([FromQuery] CountryQuery query, [FromQuery] PagingQuery paging)
+    {
+        return _countryService.GetCountries<CountryDto>(query.GetExpression(), paging);
+    }
 
-        [HttpGet]
-        [AllowAnonymous]
-        public Task<PagedList<CountryDto>> GetCountries([FromQuery] CountryQuery query, [FromQuery] PagingQuery paging)
-        {
-            return _countryService.GetCountries<CountryDto>(query.GetExpression(), paging);
-        }
+    [HttpGet("{iso2}")]
+    [AllowAnonymous]
+    public Task<CountryWithStateProvinces> GetCountry([FromRoute] string iso2)
+    {
+        return _countryService.GetCountry<CountryWithStateProvinces>(iso2);
+    }
 
-        [HttpGet("{iso2}")]
-        [AllowAnonymous]
-        public Task<CountryWithStateProvinces> GetCountry([FromRoute] string iso2)
-        {
-            return _countryService.GetCountry<CountryWithStateProvinces>(iso2);
-        }
-
-        [HttpPatch("{iso2}/enable")]
-        public Task<Result> EnableCountry([FromRoute] string iso2)
-        {
-            return _enabledCountryService.EnableCountry(iso2);
-        }
+    [HttpPatch("{iso2}/enable")]
+    public Task<Result> EnableCountry([FromRoute] string iso2)
+    {
+        return _enabledCountryService.EnableCountry(iso2);
     }
 }
