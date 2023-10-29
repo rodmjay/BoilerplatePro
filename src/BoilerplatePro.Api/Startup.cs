@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using BoilerplatePro.Base.Common.Data.Contexts;
 using BoilerplatePro.Base.Common.Middleware.Extensions;
 using BoilerplatePro.Base.Common.Settings;
+using BoilerplatePro.Base.Currencies.Extensions;
 using BoilerplatePro.Base.Geography.Extensions;
 using BoilerplatePro.Base.Languages.Extensions;
 using BoilerplatePro.Base.Users.Extensions;
@@ -48,6 +49,7 @@ public class Startup
             .AddUserAccessor()
             .AddUserDependencies()
             .AddGeographyDependencies()
+            .AddCurrencyDependencies()
             .AddLanguageDependencies();
 
         var webAppBuilder = builder.ConfigureWebApp(Environment);

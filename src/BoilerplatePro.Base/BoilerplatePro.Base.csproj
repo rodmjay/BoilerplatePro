@@ -151,7 +151,5 @@
 
 	<ItemGroup>
 	  <Folder Include="Common\Data\Migrations\" />
-	  <Folder Include="Currencies\Extensions\" />
-	  <Folder Include="Currencies\Services\" />
 	</ItemGroup>
 </Project>
