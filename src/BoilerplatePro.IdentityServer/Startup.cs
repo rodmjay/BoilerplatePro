@@ -36,6 +36,7 @@ namespace BoilerplatePro.IdentityServer
             var builder = services.ConfigureApp(Configuration, Environment)
                 .AddDatabase<ApplicationContext>()
                 .AddIdentity()
+                .AddUserAccessor()
                 .AddAutoMapperProfilesFromAssemblies()
                 .AddCaching()
                 .AddUserDependencies();

@@ -19,6 +19,7 @@ namespace BoilerplatePro.Base.Geography.Interfaces
     {
         IQueryable<EnabledCountry> EnabledCountries { get; }
 
-        Task<Result> EnableCountry(string iso2);
+        Task<Result> EnableCountry(int userId, string iso2);
+        Task<Result> DisableCountry(int userId, string iso2);
     }
 }

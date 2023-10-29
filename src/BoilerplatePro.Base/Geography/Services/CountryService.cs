@@ -34,7 +34,7 @@ namespace BoilerplatePro.Base.Geography.Services
             _stateProvinceRepo = UnitOfWork.RepositoryAsync<StateProvince>();
         }
 
-        public IQueryable<Country> Countries => Repository.Queryable().Include(x => x.EnabledCountry);
+        public IQueryable<Country> Countries => Repository.Queryable().Include(x => x.Users);
         public IQueryable<StateProvince> StateProvinces => _stateProvinceRepo.Queryable();
 
         public Task<T> GetCountry<T>(string id) where T : CountryDto

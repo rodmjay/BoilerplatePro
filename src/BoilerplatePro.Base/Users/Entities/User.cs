@@ -12,6 +12,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 using BoilerplatePro.Base.Common.Data.Enums;
 using BoilerplatePro.Base.Common.Data.Interfaces;
+using BoilerplatePro.Base.Geography.Entities;
 using BoilerplatePro.Base.Users.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -38,6 +39,7 @@ namespace BoilerplatePro.Base.Users.Entities
         public ICollection<UserToken> UserTokens { get; set; }
         public ICollection<UserLogin> UserLogins { get; set; }
         public ICollection<UserClaim> UserClaims { get; set; }
+        public ICollection<EnabledCountry> EnabledCountries { get; set; }
 
         public void Configure(EntityTypeBuilder<User> builder)
         {

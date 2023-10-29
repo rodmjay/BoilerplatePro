@@ -31,19 +31,7 @@ namespace BoilerplatePro.Base.Users.Extensions
             return builder;
         }
 
-        public static WebAppBuilder AddUserAccessor(this WebAppBuilder builder)
-        {
-            builder.Services.TryAddScoped<IUserAccessor, UserAccessor>();
-            builder.Services.TryAddScoped(x =>
-            {
-                var httpContextAccessor = x.GetRequiredService<IHttpContextAccessor>();
-                var userAccessor = x.GetRequiredService<IUserAccessor>();
-
-                return userAccessor.GetUser(httpContextAccessor.HttpContext.User).Result;
-            });
-
-            return builder;
-        }
+        
 
         public static WebAppBuilder AddAuthorization(this WebAppBuilder builder,
             Action<AuthorizationPolicyBuilder> action)

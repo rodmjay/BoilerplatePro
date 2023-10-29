@@ -698,23 +698,6 @@ namespace BoilerplatePro.Base.common.data.migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EnabledCountry",
-                columns: table => new
-                {
-                    Iso2 = table.Column<string>(type: "nvarchar(2)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_EnabledCountry", x => x.Iso2);
-                    table.ForeignKey(
-                        name: "FK_EnabledCountry_Country_Iso2",
-                        column: x => x.Iso2,
-                        principalTable: "Country",
-                        principalColumn: "Iso2",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "StateProvince",
                 columns: table => new
                 {
@@ -827,6 +810,30 @@ namespace BoilerplatePro.Base.common.data.migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "EnabledCountry",
+                columns: table => new
+                {
+                    Iso2 = table.Column<string>(type: "nvarchar(2)", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EnabledCountry", x => x.Iso2);
+                    table.ForeignKey(
+                        name: "FK_EnabledCountry_Country_Iso2",
+                        column: x => x.Iso2,
+                        principalTable: "Country",
+                        principalColumn: "Iso2",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_EnabledCountry_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserClaim",
                 columns: table => new
                 {
@@ -915,7 +922,7 @@ namespace BoilerplatePro.Base.common.data.migrations
                 schema: "IdentityServer",
                 table: "ApiScope",
                 columns: new[] { "Id", "Created", "Description", "DisplayName", "Emphasize", "Enabled", "LastAccessed", "Name", "NonEditable", "Required", "ShowInDiscoveryDocument", "Updated" },
-                values: new object[] { 1, new DateTime(2023, 10, 29, 15, 58, 26, 998, DateTimeKind.Utc).AddTicks(7719), null, "My API", false, true, null, "api1", false, false, true, null });
+                values: new object[] { 1, new DateTime(2023, 10, 29, 17, 46, 33, 454, DateTimeKind.Utc).AddTicks(5579), null, "My API", false, true, null, "api1", false, false, true, null });
 
             migrationBuilder.InsertData(
                 schema: "IdentityServer",
@@ -1572,64 +1579,6 @@ namespace BoilerplatePro.Base.common.data.migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "StateProvince",
-                columns: new[] { "Id", "Abbrev", "Code", "Iso2", "Name" },
-                values: new object[,]
-                {
-                    { 1, "Ala.", "AL", null, "Alabama" },
-                    { 2, "Alaska", "AK", null, "Alaska" },
-                    { 3, "Ariz.", "AZ", null, "Arizona" },
-                    { 4, "Ark.", "AR", null, "Arkansas" },
-                    { 5, "Calif.", "CA", null, "California" },
-                    { 6, "Colo.", "CO", null, "Colorado" },
-                    { 7, "Conn.", "CT", null, "Connecticut" },
-                    { 8, "Del.", "DE", null, "Delaware" },
-                    { 9, "D.C.", "DC", null, "District of Columbia" },
-                    { 10, "Fla.", "FL", null, "Florida" },
-                    { 11, "Ga.", "GA", null, "Georgia" },
-                    { 12, "Hawaii", "HI", null, "Hawaii" },
-                    { 13, "Idaho", "ID", null, "Idaho" },
-                    { 14, "Ill.", "IL", null, "Illinois" },
-                    { 15, "Ind.", "IN", null, "Indiana" },
-                    { 16, "Iowa", "IA", null, "Iowa" },
-                    { 17, "Kans.", "KS", null, "Kansas" },
-                    { 18, "Ky.", "KY", null, "Kentucky" },
-                    { 19, "La.", "LA", null, "Louisiana" },
-                    { 20, "Maine", "ME", null, "Maine" },
-                    { 21, "Md.", "MD", null, "Maryland" },
-                    { 22, "Mass.", "MA", null, "Massachusetts" },
-                    { 23, "Mich.", "MI", null, "Michigan" },
-                    { 24, "Minn.", "MN", null, "Minnesota" },
-                    { 25, "Miss.", "MS", null, "Mississippi" },
-                    { 26, "Mo.", "MO", null, "Missouri" },
-                    { 27, "Mont.", "MT", null, "Montana" },
-                    { 28, "Nebr.", "NE", null, "Nebraska" },
-                    { 29, "Nev.", "NV", null, "Nevada" },
-                    { 30, "N.H.", "NH", null, "New Hampshire" },
-                    { 31, "N.J.", "NJ", null, "New Jersey" },
-                    { 32, "N.M.", "NM", null, "New Mexico" },
-                    { 33, "N.Y.", "NY", null, "New York" },
-                    { 34, "N.C.", "NC", null, "North Carolina" },
-                    { 35, "N.D.", "ND", null, "North Dakota" },
-                    { 36, "Ohio", "OH", null, "Ohio" },
-                    { 37, "Okla.", "OK", null, "Oklahoma" },
-                    { 38, "Ore.", "OR", null, "Oregon" },
-                    { 39, "Pa.", "PA", null, "Pennsylvania" },
-                    { 40, "R.I.", "RI", null, "Rhode Island" },
-                    { 41, "S.C.", "SC", null, "South Carolina" },
-                    { 42, "S.D.", "SD", null, "South Dakota" },
-                    { 43, "Tenn.", "TN", null, "Tennessee" },
-                    { 44, "Tex.", "TX", null, "Texas" },
-                    { 45, "Utah", "UT", null, "Utah" },
-                    { 46, "Vt.", "VT", null, "Vermont" },
-                    { 47, "Va.", "VA", null, "Virginia" },
-                    { 48, "Wash.", "WA", null, "Washington" },
-                    { 49, "W.Va.", "WV", null, "West Virginia" },
-                    { 50, "Wis.", "WI", null, "Wisconsin" },
-                    { 51, "Wyo.", "WY", null, "Wyoming" }
-                });
-
-            migrationBuilder.InsertData(
                 table: "Timezone",
                 columns: new[] { "Code", "Name", "Value" },
                 values: new object[,]
@@ -1910,8 +1859,8 @@ namespace BoilerplatePro.Base.common.data.migrations
 
             migrationBuilder.InsertData(
                 table: "EnabledCountry",
-                column: "Iso2",
-                value: "US");
+                columns: new[] { "Iso2", "UserId" },
+                values: new object[] { "US", 1 });
 
             migrationBuilder.InsertData(
                 schema: "IdentityServer",
@@ -1940,6 +1889,64 @@ namespace BoilerplatePro.Base.common.data.migrations
                 table: "LanguageCountry",
                 columns: new[] { "Code3", "Iso2", "Default" },
                 values: new object[] { "eng", "US", true });
+
+            migrationBuilder.InsertData(
+                table: "StateProvince",
+                columns: new[] { "Id", "Abbrev", "Code", "Iso2", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Ala.", "AL", "US", "Alabama" },
+                    { 2, "Alaska", "AK", "US", "Alaska" },
+                    { 3, "Ariz.", "AZ", "US", "Arizona" },
+                    { 4, "Ark.", "AR", "US", "Arkansas" },
+                    { 5, "Calif.", "CA", "US", "California" },
+                    { 6, "Colo.", "CO", "US", "Colorado" },
+                    { 7, "Conn.", "CT", "US", "Connecticut" },
+                    { 8, "Del.", "DE", "US", "Delaware" },
+                    { 9, "D.C.", "DC", "US", "District of Columbia" },
+                    { 10, "Fla.", "FL", "US", "Florida" },
+                    { 11, "Ga.", "GA", "US", "Georgia" },
+                    { 12, "Hawaii", "HI", "US", "Hawaii" },
+                    { 13, "Idaho", "ID", "US", "Idaho" },
+                    { 14, "Ill.", "IL", "US", "Illinois" },
+                    { 15, "Ind.", "IN", "US", "Indiana" },
+                    { 16, "Iowa", "IA", "US", "Iowa" },
+                    { 17, "Kans.", "KS", "US", "Kansas" },
+                    { 18, "Ky.", "KY", "US", "Kentucky" },
+                    { 19, "La.", "LA", "US", "Louisiana" },
+                    { 20, "Maine", "ME", "US", "Maine" },
+                    { 21, "Md.", "MD", "US", "Maryland" },
+                    { 22, "Mass.", "MA", "US", "Massachusetts" },
+                    { 23, "Mich.", "MI", "US", "Michigan" },
+                    { 24, "Minn.", "MN", "US", "Minnesota" },
+                    { 25, "Miss.", "MS", "US", "Mississippi" },
+                    { 26, "Mo.", "MO", "US", "Missouri" },
+                    { 27, "Mont.", "MT", "US", "Montana" },
+                    { 28, "Nebr.", "NE", "US", "Nebraska" },
+                    { 29, "Nev.", "NV", "US", "Nevada" },
+                    { 30, "N.H.", "NH", "US", "New Hampshire" },
+                    { 31, "N.J.", "NJ", "US", "New Jersey" },
+                    { 32, "N.M.", "NM", "US", "New Mexico" },
+                    { 33, "N.Y.", "NY", "US", "New York" },
+                    { 34, "N.C.", "NC", "US", "North Carolina" },
+                    { 35, "N.D.", "ND", "US", "North Dakota" },
+                    { 36, "Ohio", "OH", "US", "Ohio" },
+                    { 37, "Okla.", "OK", "US", "Oklahoma" },
+                    { 38, "Ore.", "OR", "US", "Oregon" },
+                    { 39, "Pa.", "PA", "US", "Pennsylvania" },
+                    { 40, "R.I.", "RI", "US", "Rhode Island" },
+                    { 41, "S.C.", "SC", "US", "South Carolina" },
+                    { 42, "S.D.", "SD", "US", "South Dakota" },
+                    { 43, "Tenn.", "TN", "US", "Tennessee" },
+                    { 44, "Tex.", "TX", "US", "Texas" },
+                    { 45, "Utah", "UT", "US", "Utah" },
+                    { 46, "Vt.", "VT", "US", "Vermont" },
+                    { 47, "Va.", "VA", "US", "Virginia" },
+                    { 48, "Wash.", "WA", "US", "Washington" },
+                    { 49, "W.Va.", "WV", "US", "West Virginia" },
+                    { 50, "Wis.", "WI", "US", "Wisconsin" },
+                    { 51, "Wyo.", "WY", "US", "Wyoming" }
+                });
 
             migrationBuilder.InsertData(
                 table: "UserRole",
@@ -2096,6 +2103,11 @@ namespace BoilerplatePro.Base.common.data.migrations
                 schema: "IdentityServer",
                 table: "DeviceFlowCodes",
                 column: "Expiration");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EnabledCountry_UserId",
+                table: "EnabledCountry",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_IdentityResource_Name",

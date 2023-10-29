@@ -16,6 +16,7 @@ using BoilerplatePro.Base.Users.Interfaces;
 using BoilerplatePro.Base.Users.Managers;
 using BoilerplatePro.Base.Users.Services;
 using BoilerplatePro.Base.Users.Validators;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -24,6 +25,19 @@ namespace BoilerplatePro.Base.Users.Extensions
 {
     public static class UsersAppBuilderExtensions
     {
+        public static AppBuilder AddUserAccessor(this AppBuilder builder)
+        {
+            builder.Services.TryAddScoped<IUserAccessor, UserAccessor>();
+            builder.Services.TryAddScoped(x =>
+            {
+                var httpContextAccessor = x.GetRequiredService<IHttpContextAccessor>();
+                var userAccessor = x.GetRequiredService<IUserAccessor>();
+
+                return userAccessor.GetUser(httpContextAccessor.HttpContext.User).Result;
+            });
+
+            return builder;
+        }
         public static AppBuilder AddIdentity(this AppBuilder builder)
         {
             builder.Services.AddIdentityCore<User>(options =>

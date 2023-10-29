@@ -21,12 +21,6 @@ namespace BoilerplatePro.Base.Geography.Extensions
         {
             var expr = PredicateBuilder.True<Country>();
 
-            if (query.Enabled is true)
-                expr = expr.And(x => x.EnabledCountry != null);
-
-            if (query.Enabled is false)
-                expr = expr.And(x => x.EnabledCountry == null);
-
             return expr;
         }
     }

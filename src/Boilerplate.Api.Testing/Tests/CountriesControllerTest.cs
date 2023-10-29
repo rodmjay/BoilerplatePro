@@ -50,6 +50,23 @@ namespace Boilerplate.Api.Testing.Tests
             {
                 var result = await EnableCountry("US");
                 Assert.IsNotNull(result);
+                Assert.IsTrue(result.Succeeded);
+
+            }
+        }
+
+        [TestFixture]
+        public class TheDisableCountryMethod : CountriesControllerTest
+        {
+            [Test]
+            public async Task CanEnableCountry()
+            {
+                var enabledResult = await EnableCountry("US");
+                Assert.IsTrue(enabledResult.Succeeded);
+
+                var result = await DisableCountry("US");
+                Assert.IsNotNull(result);
+                Assert.IsTrue(result.Succeeded);
             }
         }
 
@@ -67,6 +84,11 @@ namespace Boilerplate.Api.Testing.Tests
         public Task<Result> EnableCountry(string iso2)
         {
             return DoPatch<Result>($"v1.0/countries/{iso2}/enable");
+        }
+
+        public Task<Result> DisableCountry(string iso2)
+        {
+            return DoPatch<Result>($"v1.0/countries/{iso2}/disable");
         }
     }
 }

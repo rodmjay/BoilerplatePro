@@ -33,21 +33,40 @@ namespace BoilerplatePro.Base.Geography.Services
 
         public IQueryable<EnabledCountry> EnabledCountries => Repository.Queryable();
 
-        public async Task<Result> EnableCountry(string iso2)
+        public async Task<Result> EnableCountry(int userId, string iso2)
         {
-            if (await EnabledCountries.Where(x => x.Iso2 == iso2).AnyAsync())
-                return Result.Failed(_errors.CountryAlreadyEnabled());
-
-            var enabledCountry = new EnabledCountry
+            var enabledCountry = await EnabledCountries.Where(x => x.Iso2 == iso2 && x.UserId == userId).FirstOrDefaultAsync();
+            if (enabledCountry != null)
             {
-                Iso2 = iso2,
-                ObjectState = ObjectState.Added
+              return Result.Failed(_errors.CountryAlreadyEnabled());
+            }
+
+            enabledCountry = new EnabledCountry()
+            {
+                ObjectState = ObjectState.Added,
+                UserId = userId,
+                Iso2 = iso2
             };
 
-            var changes = await Repository.InsertAsync(enabledCountry, true);
-            if (changes < 1) return Result.Failed(_errors.EnableCountryError());
+            var records = await Repository.InsertAsync(enabledCountry, true);
+            if (records > 0)
+                return Result.Success(iso2);
 
-            return Result.Success(iso2);
+            return Result.Failed(_errors.EnableCountryError());
+        }
+
+        public async Task<Result> DisableCountry(int userId, string iso2)
+        {
+            var enabledCountry = await EnabledCountries.Where(x => x.Iso2 == iso2 && x.UserId == userId).FirstOrDefaultAsync();
+            if (enabledCountry == null)
+            {
+                return Result.Failed(_errors.CountryAlreadyEnabled());
+            }
+            var succeeded = await Repository.DeleteAsync(enabledCountry, true);
+            if (succeeded)
+                return Result.Success(iso2);
+
+            return Result.Failed(_errors.DisableCountryError());
         }
     }
 }

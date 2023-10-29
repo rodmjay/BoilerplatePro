@@ -44,6 +44,7 @@ public class Startup
             .AddDatabase<ApplicationContext>()
             .AddAutoMapperProfilesFromAssemblies()
             .AddCaching()
+            .AddUserAccessor()
             .AddUserDependencies()
             .AddGeographyDependencies();
 

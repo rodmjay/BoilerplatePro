@@ -46,8 +46,16 @@ public class CountriesController : BaseController, ICountriesController
     }
 
     [HttpPatch("{iso2}/enable")]
-    public Task<Result> EnableCountry([FromRoute] string iso2)
+    public async Task<Result> EnableCountry([FromRoute] string iso2)
     {
-        return _enabledCountryService.EnableCountry(iso2);
+        var user = await GetCurrentUser();
+        return await _enabledCountryService.EnableCountry(user.Id, iso2);
+    }
+
+    [HttpPatch("{iso2}/disable")]
+    public async Task<Result> DisableCountry([FromRoute] string iso2)
+    {
+        var user = await GetCurrentUser();
+        return await _enabledCountryService.DisableCountry(user.Id, iso2);
     }
 }

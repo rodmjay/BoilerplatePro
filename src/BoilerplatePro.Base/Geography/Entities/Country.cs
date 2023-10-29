@@ -19,7 +19,7 @@ namespace BoilerplatePro.Base.Geography.Entities
     {
         public ICollection<StateProvince> StateProvinces { get; set; }
         public virtual ICollection<LanguageCountry> Languages { get; set; }
-        public virtual EnabledCountry EnabledCountry { get; set; }
+        public virtual ICollection<EnabledCountry> Users { get; set; }
         public string Iso2 { get; set; }
 
         public string Name { get; set; }
@@ -49,10 +49,6 @@ namespace BoilerplatePro.Base.Geography.Entities
             builder.HasMany(x => x.StateProvinces)
                 .WithOne(x => x.Country)
                 .HasForeignKey(x => x.Iso2);
-
-            builder.HasOne(x => x.EnabledCountry)
-                .WithOne(x => x.Country)
-                .HasForeignKey<EnabledCountry>(x => x.Iso2);
 
             builder.HasMany(x => x.Languages)
                 .WithOne(x => x.Country)

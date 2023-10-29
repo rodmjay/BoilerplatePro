@@ -16,4 +16,5 @@ public interface ICountriesController
     Task<PagedList<CountryDto>> GetCountries(CountryQuery query, PagingQuery paging);
     Task<CountryWithStateProvinces> GetCountry(string iso2);
     Task<Result> EnableCountry( string iso2);
+    Task<Result> DisableCountry([FromRoute] string iso2);
 }

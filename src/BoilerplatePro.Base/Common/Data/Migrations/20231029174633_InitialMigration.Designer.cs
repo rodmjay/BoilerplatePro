@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BoilerplatePro.Base.common.data.migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20231029163254_AddedStatesWithCorrectIsoCode")]
-    partial class AddedStatesWithCorrectIsoCode
+    [Migration("20231029174633_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -3470,14 +3470,20 @@ namespace BoilerplatePro.Base.common.data.migrations
                     b.Property<string>("Iso2")
                         .HasColumnType("nvarchar(2)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Iso2");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("EnabledCountry");
 
                     b.HasData(
                         new
                         {
-                            Iso2 = "US"
+                            Iso2 = "US",
+                            UserId = 1
                         });
                 });
 
@@ -6936,7 +6942,7 @@ namespace BoilerplatePro.Base.common.data.migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2023, 10, 29, 16, 32, 53, 781, DateTimeKind.Utc).AddTicks(2832),
+                            Created = new DateTime(2023, 10, 29, 17, 46, 33, 454, DateTimeKind.Utc).AddTicks(5579),
                             DisplayName = "My API",
                             Emphasize = false,
                             Enabled = true,
@@ -8198,12 +8204,20 @@ namespace BoilerplatePro.Base.common.data.migrations
             modelBuilder.Entity("BoilerplatePro.Base.Geography.Entities.EnabledCountry", b =>
                 {
                     b.HasOne("BoilerplatePro.Base.Geography.Entities.Country", "Country")
-                        .WithOne("EnabledCountry")
-                        .HasForeignKey("BoilerplatePro.Base.Geography.Entities.EnabledCountry", "Iso2")
+                        .WithMany("Users")
+                        .HasForeignKey("Iso2")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BoilerplatePro.Base.Users.Entities.User", "User")
+                        .WithMany("EnabledCountries")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Country");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BoilerplatePro.Base.Geography.Entities.StateProvince", b =>
@@ -8486,11 +8500,11 @@ namespace BoilerplatePro.Base.common.data.migrations
 
             modelBuilder.Entity("BoilerplatePro.Base.Geography.Entities.Country", b =>
                 {
-                    b.Navigation("EnabledCountry");
-
                     b.Navigation("Languages");
 
                     b.Navigation("StateProvinces");
+
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("BoilerplatePro.Base.Languages.Entities.Language", b =>
@@ -8507,6 +8521,8 @@ namespace BoilerplatePro.Base.common.data.migrations
 
             modelBuilder.Entity("BoilerplatePro.Base.Users.Entities.User", b =>
                 {
+                    b.Navigation("EnabledCountries");
+
                     b.Navigation("UserClaims");
 
                     b.Navigation("UserLogins");
