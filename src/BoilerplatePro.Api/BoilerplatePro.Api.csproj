@@ -5,16 +5,14 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>TemplateApi.xml</DocumentationFile>
+		<DocumentationFile>BoilerplatePro.Api.xml</DocumentationFile>
 		<NoWarn>1701;1702;1591;</NoWarn>
 	</PropertyGroup>
-
+	<PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
 	<ItemGroup>
-		<None Remove="TemplateApi.xml" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Content Include="TemplateApi.xml">
+		<Content Include="BoilerplatePro.Api.xml">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>

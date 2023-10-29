@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
-namespace BoilerlatePro.Api
+namespace BoilerplatePro.Api.Controllers.Api
 {
     [ExcludeFromCodeCoverage]
     public class Program

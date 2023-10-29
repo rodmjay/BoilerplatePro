@@ -24,7 +24,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-namespace BoilerlatePro.Api
+namespace BoilerplatePro.Api.Controllers.Api
 {
     public class Startup
     {

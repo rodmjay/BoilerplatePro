@@ -17,7 +17,7 @@ using BoilerplatePro.Base.Geography.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BoilerlatePro.Api.Controllers
+namespace BoilerplatePro.Api.Controllers.Api.Controllers
 {
     public class CountriesController : BaseController
     {

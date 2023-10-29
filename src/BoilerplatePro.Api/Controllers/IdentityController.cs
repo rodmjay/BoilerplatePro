@@ -12,7 +12,7 @@ using System.Linq;
 using BoilerplatePro.Base.Common.Middleware.Bases;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BoilerlatePro.Api.Controllers
+namespace BoilerplatePro.Api.Controllers.Api.Controllers
 {
     public class IdentityController : BaseController
     {
