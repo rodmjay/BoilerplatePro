@@ -15,6 +15,6 @@ namespace BoilerplatePro.Base.Geography.Interfaces
 {
     public interface IStateProvinceStore
     {
-        Task<List<T>> GetStateProvincesForCountry<T>(string id) where T : StateProvinceDto;
+        Task<List<T>> GetStateProvincesForCountry<T>(string id) where T : StateProvinceOutput;
     }
 }

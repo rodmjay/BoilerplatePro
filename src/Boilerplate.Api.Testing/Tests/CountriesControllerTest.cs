@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using BoilerplatePro.Api.Interfaces;
 using BoilerplatePro.Base.Common.Helpers;
 using BoilerplatePro.Base.Common.Models;
 using BoilerplatePro.Base.Geography.Models;
 using BoilerplatePro.Testing.TestCaseSources;
-using Microsoft.AspNetCore.Http;
 using NUnit.Framework;
 
 namespace Boilerplate.Api.Testing.Tests
@@ -70,15 +65,15 @@ namespace Boilerplate.Api.Testing.Tests
             }
         }
 
-        public Task<PagedList<CountryDto>> GetCountries(CountryQuery query, PagingQuery paging)
+        public Task<PagedList<CountryOutput>> GetCountries(CountryQuery query, PagingQuery paging)
         {
             var querystring = UrlHelper.CombineObjectsToUrl(query, paging);
-            return DoGet<PagedList<CountryDto>>($"v1.0/countries/?{querystring}");
+            return DoGet<PagedList<CountryOutput>>($"v1.0/countries/?{querystring}");
         }
 
-        public Task<CountryWithStateProvinces> GetCountry(string iso2)
+        public Task<CountryWithStateProvincesOutput> GetCountry(string iso2)
         {
-            return DoGet<CountryWithStateProvinces>($"v1.0/countries/{iso2}");
+            return DoGet<CountryWithStateProvincesOutput>($"v1.0/countries/{iso2}");
         }
 
         public Task<Result> EnableCountry(string iso2)

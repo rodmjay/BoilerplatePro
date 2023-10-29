@@ -18,9 +18,9 @@ namespace BoilerplatePro.Base.Geography.Interfaces
 {
     public interface ICountryStore
     {
-        Task<T> GetCountry<T>(string iso2) where T : CountryDto;
+        Task<T> GetCountry<T>(string iso2) where T : CountryOutput;
 
         Task<PagedList<T>> GetCountries<T>(Expression<Func<Country, bool>> predicate, PagingQuery paging)
-            where T : CountryDto;
+            where T : CountryOutput;
     }
 }

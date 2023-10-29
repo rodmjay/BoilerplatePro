@@ -18,7 +18,7 @@ namespace BoilerplatePro.Base.Geography.Projections
     {
         public StateProvinceProjections()
         {
-            CreateMap<StateProvince, StateProvinceDto>()
+            CreateMap<StateProvince, StateProvinceOutput>()
                 .IncludeAllDerived();
 
             CreateMap<StateProvince, DropdownItem>()

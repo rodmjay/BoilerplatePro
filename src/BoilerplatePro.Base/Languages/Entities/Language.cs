@@ -9,11 +9,12 @@
 
 using System.Collections.Generic;
 using BoilerplatePro.Base.Common.Data.Bases;
+using BoilerplatePro.Base.Languages.Interfaces;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BoilerplatePro.Base.Languages.Entities
 {
-    public class Language : BaseEntity<Language>
+    public class Language : BaseEntity<Language>, ILanguage
     {
         public string Name { get; set; }
         public string NativeName { get; set; }

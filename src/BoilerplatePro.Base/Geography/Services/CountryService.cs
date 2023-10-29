@@ -37,7 +37,7 @@ namespace BoilerplatePro.Base.Geography.Services
         public IQueryable<Country> Countries => Repository.Queryable().Include(x => x.Users);
         public IQueryable<StateProvince> StateProvinces => _stateProvinceRepo.Queryable();
 
-        public Task<T> GetCountry<T>(string id) where T : CountryDto
+        public Task<T> GetCountry<T>(string id) where T : CountryOutput
         {
             return Countries.Where(x => x.Iso2 == id)
                 .ProjectTo<T>(ProjectionMapping)
@@ -46,12 +46,12 @@ namespace BoilerplatePro.Base.Geography.Services
         }
 
         public Task<PagedList<T>> GetCountries<T>(Expression<Func<Country, bool>> predicate, PagingQuery paging)
-            where T : CountryDto
+            where T : CountryOutput
         {
             return this.PaginateAsync<Country, T>(predicate, paging);
         }
 
-        public Task<List<T>> GetStateProvincesForCountry<T>(string iso2) where T : StateProvinceDto
+        public Task<List<T>> GetStateProvincesForCountry<T>(string iso2) where T : StateProvinceOutput
         {
             return StateProvinces.Where(x => x.Iso2 == iso2).ProjectTo<T>(ProjectionMapping)
                 .AsNoTracking()

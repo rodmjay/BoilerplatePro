@@ -7,6 +7,7 @@
 
 #endregion
 
+using System.Linq;
 using AutoMapper;
 using BoilerplatePro.Base.Common.Models;
 using BoilerplatePro.Base.Geography.Entities;
@@ -18,10 +19,11 @@ namespace BoilerplatePro.Base.Geography.Projections
     {
         public CountryProjections()
         {
-            CreateMap<Country, CountryDto>()
+            CreateMap<Country, CountryOutput>()
+                .ForMember(x=>x.Languages, opt=>opt.MapFrom(x=>x.Languages.Select(l=>l.Language)))
                 .IncludeAllDerived();
 
-            CreateMap<Country, CountryWithStateProvinces>()
+            CreateMap<Country, CountryWithStateProvincesOutput>()
                 .ForMember(x => x.StateProvinces, opt => opt.MapFrom(x => x.StateProvinces))
                 .IncludeAllDerived();
 

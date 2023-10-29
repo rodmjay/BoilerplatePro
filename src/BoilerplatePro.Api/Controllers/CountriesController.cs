@@ -32,17 +32,16 @@ public class CountriesController : BaseController, ICountriesController
     }
 
     [HttpGet]
-    [AllowAnonymous]
-    public Task<PagedList<CountryDto>> GetCountries([FromQuery] CountryQuery query, [FromQuery] PagingQuery paging)
+    public Task<PagedList<CountryOutput>> GetCountries([FromQuery] CountryQuery query, [FromQuery] PagingQuery paging)
     {
-        return _countryService.GetCountries<CountryDto>(query.GetExpression(), paging);
+        return _countryService.GetCountries<CountryOutput>(query.GetExpression(), paging);
     }
 
     [HttpGet("{iso2}")]
     [AllowAnonymous]
-    public Task<CountryWithStateProvinces> GetCountry([FromRoute] string iso2)
+    public Task<CountryWithStateProvincesOutput> GetCountry([FromRoute] string iso2)
     {
-        return _countryService.GetCountry<CountryWithStateProvinces>(iso2);
+        return _countryService.GetCountry<CountryWithStateProvincesOutput>(iso2);
     }
 
     [HttpPatch("{iso2}/enable")]

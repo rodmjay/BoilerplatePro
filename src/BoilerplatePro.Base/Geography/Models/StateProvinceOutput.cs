@@ -11,7 +11,7 @@ using BoilerplatePro.Base.Geography.Interfaces;
 
 namespace BoilerplatePro.Base.Geography.Models
 {
-    public class StateProvinceDto : IStateProvince
+    public class StateProvinceOutput : IStateProvince
     {
         public string Name { get; set; }
 
