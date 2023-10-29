@@ -7,6 +7,7 @@ using BoilerplatePro.Api.Interfaces;
 using BoilerplatePro.Base.Common.Helpers;
 using BoilerplatePro.Base.Common.Models;
 using BoilerplatePro.Base.Geography.Models;
+using BoilerplatePro.Testing.TestCaseSources;
 using Microsoft.AspNetCore.Http;
 using NUnit.Framework;
 
@@ -30,12 +31,25 @@ namespace Boilerplate.Api.Testing.Tests
         [TestFixture]
         public class TheGetCountryMethod : CountriesControllerTest
         {
-            [Test]
-            public async Task CanGetCountry()
+            [TestCaseSource(typeof(CountryTestCases), nameof(CountryTestCases.CountriesWithStateProvinceCounts))]
+            public async Task CanGetCountry(string iso2, int count)
             {
-                var country = await GetCountry("us");
+                var country = await GetCountry(iso2);
 
                 Assert.IsNotNull(country);
+
+                Assert.AreEqual(count, country.StateProvinces.Count);
+            }
+        }
+
+        [TestFixture]
+        public class TheEnableCountryMethod : CountriesControllerTest
+        {
+            [Test]
+            public async Task CanEnableCountry()
+            {
+                var result = await EnableCountry("US");
+                Assert.IsNotNull(result);
             }
         }
 
@@ -52,7 +66,7 @@ namespace Boilerplate.Api.Testing.Tests
 
         public Task<Result> EnableCountry(string iso2)
         {
-            throw new NotImplementedException();
+            return DoPatch<Result>($"v1.0/countries/{iso2}/enable");
         }
     }
 }

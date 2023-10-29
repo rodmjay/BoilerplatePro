@@ -1,52 +1,52 @@
-﻿Id,CountryId,Name,Abbrev,Code
-1,226,Alabama,Ala.,AL
-2,226,Alaska,Alaska,AK
-3,226,Arizona,Ariz.,AZ
-4,226,Arkansas,Ark.,AR
-5,226,California,Calif.,CA
-6,226,Colorado,Colo.,CO
-7,226,Connecticut,Conn.,CT
-8,226,Delaware,Del.,DE
-9,226,District of Columbia,D.C.,DC
-10,226,Florida,Fla.,FL
-11,226,Georgia,Ga.,GA
-12,226,Hawaii,Hawaii,HI
-13,226,Idaho,Idaho,ID
-14,226,Illinois,Ill.,IL
-15,226,Indiana,Ind.,IN
-16,226,Iowa,Iowa,IA
-17,226,Kansas,Kans.,KS
-18,226,Kentucky,Ky.,KY
-19,226,Louisiana,La.,LA
-20,226,Maine,Maine,ME
-21,226,Maryland,Md.,MD
-22,226,Massachusetts,Mass.,MA
-23,226,Michigan,Mich.,MI
-24,226,Minnesota,Minn.,MN
-25,226,Mississippi,Miss.,MS
-26,226,Missouri,Mo.,MO
-27,226,Montana,Mont.,MT
-28,226,Nebraska,Nebr.,NE
-29,226,Nevada,Nev.,NV
-30,226,New Hampshire,N.H.,NH
-31,226,New Jersey,N.J.,NJ
-32,226,New Mexico,N.M.,NM
-33,226,New York,N.Y.,NY
-34,226,North Carolina,N.C.,NC
-35,226,North Dakota,N.D.,ND
-36,226,Ohio,Ohio,OH
-37,226,Oklahoma,Okla.,OK
-38,226,Oregon,Ore.,OR
-39,226,Pennsylvania,Pa.,PA
-40,226,Rhode Island,R.I.,RI
-41,226,South Carolina,S.C.,SC
-42,226,South Dakota,S.D.,SD
-43,226,Tennessee,Tenn.,TN
-44,226,Texas,Tex.,TX
-45,226,Utah,Utah,UT
-46,226,Vermont,Vt.,VT
-47,226,Virginia,Va.,VA
-48,226,Washington,Wash.,WA
-49,226,West Virginia,W.Va.,WV
-50,226,Wisconsin,Wis.,WI
-51,226,Wyoming,Wyo.,WY
+﻿Id,Iso2,Name,Abbrev,Code
+1,US,Alabama,Ala.,AL
+2,US,Alaska,Alaska,AK
+3,US,Arizona,Ariz.,AZ
+4,US,Arkansas,Ark.,AR
+5,US,California,Calif.,CA
+6,US,Colorado,Colo.,CO
+7,US,Connecticut,Conn.,CT
+8,US,Delaware,Del.,DE
+9,US,District of Columbia,D.C.,DC
+10,US,Florida,Fla.,FL
+11,US,Georgia,Ga.,GA
+12,US,Hawaii,Hawaii,HI
+13,US,Idaho,Idaho,ID
+14,US,Illinois,Ill.,IL
+15,US,Indiana,Ind.,IN
+16,US,Iowa,Iowa,IA
+17,US,Kansas,Kans.,KS
+18,US,Kentucky,Ky.,KY
+19,US,Louisiana,La.,LA
+20,US,Maine,Maine,ME
+21,US,Maryland,Md.,MD
+22,US,Massachusetts,Mass.,MA
+23,US,Michigan,Mich.,MI
+24,US,Minnesota,Minn.,MN
+25,US,Mississippi,Miss.,MS
+26,US,Missouri,Mo.,MO
+27,US,Montana,Mont.,MT
+28,US,Nebraska,Nebr.,NE
+29,US,Nevada,Nev.,NV
+30,US,New Hampshire,N.H.,NH
+31,US,New Jersey,N.J.,NJ
+32,US,New Mexico,N.M.,NM
+33,US,New York,N.Y.,NY
+34,US,North Carolina,N.C.,NC
+35,US,North Dakota,N.D.,ND
+36,US,Ohio,Ohio,OH
+37,US,Oklahoma,Okla.,OK
+38,US,Oregon,Ore.,OR
+39,US,Pennsylvania,Pa.,PA
+40,US,Rhode Island,R.I.,RI
+41,US,South Carolina,S.C.,SC
+42,US,South Dakota,S.D.,SD
+43,US,Tennessee,Tenn.,TN
+44,US,Texas,Tex.,TX
+45,US,Utah,Utah,UT
+46,US,Vermont,Vt.,VT
+47,US,Virginia,Va.,VA
+48,US,Washington,Wash.,WA
+49,US,West Virginia,W.Va.,WV
+50,US,Wisconsin,Wis.,WI
+51,US,Wyoming,Wyo.,WY

@@ -108,6 +108,28 @@ public abstract class IntegrationTest<TFixture, TStartup> where TStartup : class
         return result;
     }
 
+    protected async Task<TOutput> DoPatch<TOutput, TInput>(string url, TInput input)
+    {
+        var content = input.SerializeToUTF8Json();
+
+        var response = await ApiClient.PatchAsync(url, content);
+        Assert.True(response.IsSuccessStatusCode);
+
+        var result = response.Content.DeserializeObject<TOutput>();
+
+        return result;
+    }
+
+    protected async Task<TOutput> DoPatch<TOutput>(string url)
+    {
+        var response = await ApiClient.PatchAsync(url, null);
+        Assert.True(response.IsSuccessStatusCode);
+
+        var result = response.Content.DeserializeObject<TOutput>();
+
+        return result;
+    }
+
     protected async Task<TOutput> DoGet<TOutput>(string url)
     {
         var response = await ApiClient.GetAsync(url);
