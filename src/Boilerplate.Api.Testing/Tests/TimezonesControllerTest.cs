@@ -6,6 +6,7 @@
 
 using System.Threading.Tasks;
 using BoilerplatePro.Api.Interfaces;
+using BoilerplatePro.Base.Common.Helpers;
 using BoilerplatePro.Base.Common.Models;
 using BoilerplatePro.Base.Languages.Interfaces;
 using BoilerplatePro.Base.Timezones.Models;
@@ -17,8 +18,20 @@ namespace Boilerplate.Api.Testing.Tests;
 [TestFixture]
 public class TimezonesControllerTest : BaseApiTest, ITimezonesController
 {
+    [TestFixture]
+    public class TheGetTimezonesMethod : TimezonesControllerTest
+    {
+        [Test]
+        public async Task CanGetTimezones()
+        {
+            var timezones = await GetTimezones(new TimezoneFilters(), new PagingQuery());
+
+            Assert.AreEqual(200, timezones.TotalItems);
+        }
+    }
     public Task<PagedList<TimezoneOutput>> GetTimezones(TimezoneFilters filters, PagingQuery paging)
     {
-        throw new System.NotImplementedException();
+        var querystring = UrlHelper.CombineObjectsToUrl(filters, paging);
+        return DoGetAnonymous<PagedList<TimezoneOutput>>($"/v1.0/timezones?{querystring}");
     }
 }

@@ -5,6 +5,7 @@ using BoilerplatePro.Base.Common.Middleware.Bases;
 using BoilerplatePro.Base.Common.Models;
 using BoilerplatePro.Base.Timezones.Interfaces;
 using BoilerplatePro.Base.Timezones.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BoilerplatePro.Api.Controllers;
@@ -19,6 +20,7 @@ public class TimezonesController : BaseController, ITimezonesController
     }
 
     [HttpGet]
+    [AllowAnonymous]
     public async Task<PagedList<TimezoneOutput>> GetTimezones([FromQuery] TimezoneFilters filters,
         [FromQuery] PagingQuery paging)
     {
