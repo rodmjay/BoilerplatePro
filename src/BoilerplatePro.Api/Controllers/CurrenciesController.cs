@@ -6,6 +6,7 @@
 
 using System;
 using System.Threading.Tasks;
+using BoilerplatePro.Api.Interfaces;
 using BoilerplatePro.Base.Common.Middleware.Bases;
 using BoilerplatePro.Base.Common.Models;
 using BoilerplatePro.Base.Currencies.Interfaces;
@@ -14,7 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BoilerplatePro.Api.Controllers;
 
-public class CurrenciesController : BaseController
+public class CurrenciesController : BaseController, ICurrenciesController
 {
     private readonly ICurrencyService _currencyService;
 

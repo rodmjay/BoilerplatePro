@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using BoilerplatePro.Api.Interfaces;
 using BoilerplatePro.Base.Common.Middleware.Bases;
 using BoilerplatePro.Base.Common.Models;
 using BoilerplatePro.Base.Timezones.Interfaces;
@@ -8,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BoilerplatePro.Api.Controllers;
 
-public class TimezonesController : BaseController
+public class TimezonesController : BaseController, ITimezonesController
 {
     private readonly ITimezoneService _timezoneService;
 

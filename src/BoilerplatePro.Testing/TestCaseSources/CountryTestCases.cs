@@ -6,6 +6,17 @@ using System.Threading.Tasks;
 
 namespace BoilerplatePro.Testing.TestCaseSources
 {
+    public static class LanguageTestCases
+    {
+        public static object[] LanguagesWithCountryCount => new object[]
+        {
+            new object[]
+            {
+                "EN",
+                1
+            }
+        };
+    }
     public static class CountryTestCases
     {
         public static object[] CountriesWithStateProvinceCounts => new object[]
