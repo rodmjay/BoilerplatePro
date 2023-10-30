@@ -27,7 +27,7 @@ public class LanguagesController : BaseController, ILanguagesController
 
     [HttpGet]
     [AllowAnonymous]
-    public async Task<PagedList<LanguageDetails>> GetLanguages([FromQuery]LanguageQuery filters, [FromQuery] PagingQuery paging)
+    public async Task<PagedList<LanguageDetails>> GetLanguages([FromQuery]LanguageFilters filters, [FromQuery] PagingQuery paging)
     {
         return await _languageService.GetLanguages<LanguageDetails>(filters, paging);
     }

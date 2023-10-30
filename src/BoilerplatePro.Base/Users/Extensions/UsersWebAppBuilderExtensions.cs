@@ -9,12 +9,8 @@
 
 using System;
 using BoilerplatePro.Base.Common.Middleware.Builders;
-using BoilerplatePro.Base.Users.Interfaces;
-using BoilerplatePro.Base.Users.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace BoilerplatePro.Base.Users.Extensions
 {

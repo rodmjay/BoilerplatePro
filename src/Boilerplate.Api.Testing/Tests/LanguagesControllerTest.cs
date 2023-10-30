@@ -23,7 +23,7 @@ public class LanguagesControllerTest : BaseApiTest, ILanguagesController
         [Test]
         public async Task CanGetLanguages()
         {
-            var result = await GetLanguages(new LanguageQuery(), new PagingQuery());
+            var result = await GetLanguages(new LanguageFilters(), new PagingQuery());
 
             Assert.AreEqual(185, result.TotalItems);
         }
@@ -41,7 +41,7 @@ public class LanguagesControllerTest : BaseApiTest, ILanguagesController
         }
     }
 
-    public Task<PagedList<LanguageDetails>> GetLanguages(LanguageQuery filters, PagingQuery paging)
+    public Task<PagedList<LanguageDetails>> GetLanguages(LanguageFilters filters, PagingQuery paging)
     {
         var querystring = UrlHelper.CombineObjectsToUrl(filters, paging);
         return DoGetAnonymous<PagedList<LanguageDetails>>($"v1.0/languages?{querystring}");

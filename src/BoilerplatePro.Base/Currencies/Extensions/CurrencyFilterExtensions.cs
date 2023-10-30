@@ -12,8 +12,6 @@ using System.Linq.Expressions;
 using BoilerplatePro.Base.Common.Queries;
 using BoilerplatePro.Base.Currencies.Entities;
 using BoilerplatePro.Base.Currencies.Models;
-using BoilerplatePro.Base.Languages.Entities;
-using BoilerplatePro.Base.Languages.Models;
 
 namespace BoilerplatePro.Base.Currencies.Extensions
 {

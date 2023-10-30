@@ -13,6 +13,6 @@ namespace BoilerplatePro.Api.Interfaces;
 
 public interface ILanguagesController
 {
-    Task<PagedList<LanguageDetails>> GetLanguages([FromQuery] LanguageQuery filters, [FromQuery] PagingQuery paging);
+    Task<PagedList<LanguageDetails>> GetLanguages([FromQuery] LanguageFilters filters, [FromQuery] PagingQuery paging);
     Task<LanguageDetails> GetLanguage([FromRoute] string code2);
 }

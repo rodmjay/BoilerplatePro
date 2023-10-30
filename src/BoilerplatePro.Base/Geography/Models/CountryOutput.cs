@@ -7,9 +7,7 @@
 
 #endregion
 
-using System.Collections.Generic;
 using BoilerplatePro.Base.Geography.Interfaces;
-using BoilerplatePro.Base.Languages.Models;
 
 namespace BoilerplatePro.Base.Geography.Models
 {

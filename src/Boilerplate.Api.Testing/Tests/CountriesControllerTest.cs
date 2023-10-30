@@ -17,7 +17,7 @@ namespace Boilerplate.Api.Testing.Tests
             [Test]
             public async Task CanGetCountries()
             {
-                var countries = await GetCountries(new CountryQuery(), new PagingQuery());
+                var countries = await GetCountries(new CountryFilters(), new PagingQuery());
 
                 Assert.IsNotNull(countries);
             }
@@ -65,9 +65,9 @@ namespace Boilerplate.Api.Testing.Tests
             }
         }
 
-        public Task<PagedList<CountryDetails>> GetCountries(CountryQuery query, PagingQuery paging)
+        public Task<PagedList<CountryDetails>> GetCountries(CountryFilters filters, PagingQuery paging)
         {
-            var querystring = UrlHelper.CombineObjectsToUrl(query, paging);
+            var querystring = UrlHelper.CombineObjectsToUrl(filters, paging);
             return DoGetAnonymous<PagedList<CountryDetails>>($"v1.0/countries/?{querystring}");
         }
 

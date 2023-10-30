@@ -4,7 +4,6 @@
 
 #endregion
 
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using BoilerplatePro.Base.Common.Models;
 using BoilerplatePro.Base.Common.Services.Interfaces;
@@ -15,6 +14,6 @@ namespace BoilerplatePro.Base.Languages.Interfaces;
 
 public interface ILanguageService : IService<Language>
 {
-    Task<PagedList<T>> GetLanguages<T>(LanguageQuery filters, PagingQuery query);
+    Task<PagedList<T>> GetLanguages<T>(LanguageFilters filters, PagingQuery query);
     Task<T> GetLanguage<T>(string code2);
 }

@@ -9,7 +9,6 @@
 
 using System.Collections.Generic;
 using BoilerplatePro.Base.Common.Data.Bases;
-using BoilerplatePro.Base.Geography.Entities;
 using BoilerplatePro.Base.Timezones.Interfaces;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

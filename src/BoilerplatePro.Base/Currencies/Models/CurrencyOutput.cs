@@ -1,8 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BoilerplatePro.Base.Currencies.Interfaces;
+﻿using BoilerplatePro.Base.Currencies.Interfaces;
 
 namespace BoilerplatePro.Base.Currencies.Models
 {

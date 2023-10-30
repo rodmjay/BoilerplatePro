@@ -10,8 +10,6 @@
 using System;
 using System.Linq.Expressions;
 using BoilerplatePro.Base.Common.Queries;
-using BoilerplatePro.Base.Languages.Entities;
-using BoilerplatePro.Base.Languages.Models;
 using BoilerplatePro.Base.Timezones.Entities;
 using BoilerplatePro.Base.Timezones.Models;
 

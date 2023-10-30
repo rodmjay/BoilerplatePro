@@ -10,7 +10,6 @@
 using System;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Xml.Linq;
 using Newtonsoft.Json;
 
 namespace BoilerplatePro.Base.Common.Extensions

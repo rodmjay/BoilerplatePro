@@ -15,12 +15,15 @@ using System.Linq.Expressions;
 
 namespace BoilerplatePro.Base.Geography.Extensions
 {
-    public static class CountryQueryExtensions
+    public static class CountryFiltersExtensions
     {
-        public static Expression<Func<Country, bool>> GetExpression(this CountryQuery query)
+        public static Expression<Func<Country, bool>> GetExpression(this CountryFilters filters)
         {
             var expr = PredicateBuilder.True<Country>();
-
+            if (filters.Name != null)
+            {
+                expr.And(x => x.Name.Contains(filters.Name));
+            }
             return expr;
         }
     }

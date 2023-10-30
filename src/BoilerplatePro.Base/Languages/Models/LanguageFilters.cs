@@ -6,7 +6,7 @@
 
 namespace BoilerplatePro.Base.Languages.Models;
 
-public class LanguageQuery
+public class LanguageFilters
 {
-
+    public string Name { get; set; }
 }

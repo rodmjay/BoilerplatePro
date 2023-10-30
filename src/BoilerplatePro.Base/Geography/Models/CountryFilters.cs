@@ -10,8 +10,8 @@
 
 namespace BoilerplatePro.Base.Geography.Models
 {
-    public class CountryQuery
+    public class CountryFilters
     {
-        public bool? Enabled { get; set; }
+        public string Name { get; set; }
     }
 }

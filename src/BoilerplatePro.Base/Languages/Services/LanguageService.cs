@@ -21,7 +21,7 @@ namespace BoilerplatePro.Base.Languages.Services
 
         private IQueryable<Language> Languages => Repository.Queryable();
 
-        public async Task<PagedList<T>> GetLanguages<T>(LanguageQuery filters, PagingQuery query)
+        public async Task<PagedList<T>> GetLanguages<T>(LanguageFilters filters, PagingQuery query)
         {
             var expr = filters.GetExpression();
             return await this.PaginateAsync<Language, T>(expr, query);

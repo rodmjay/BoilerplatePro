@@ -32,9 +32,9 @@ public class CountriesController : BaseController, ICountriesController
     }
 
     [HttpGet]
-    public Task<PagedList<CountryDetails>> GetCountries([FromQuery] CountryQuery query, [FromQuery] PagingQuery paging)
+    public Task<PagedList<CountryDetails>> GetCountries([FromQuery] CountryFilters filters, [FromQuery] PagingQuery paging)
     {
-        return _countryService.GetCountries<CountryDetails>(query.GetExpression(), paging);
+        return _countryService.GetCountries<CountryDetails>(filters.GetExpression(), paging);
     }
 
     [HttpGet("{iso2}")]
