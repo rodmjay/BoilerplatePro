@@ -15,6 +15,8 @@ using NUnit.Framework;
 
 namespace Boilerplate.Api.Testing.Tests;
 
+
+
 [TestFixture]
 public class TimezonesControllerTest : BaseApiTest, ITimezonesController
 {
