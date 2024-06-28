@@ -40,6 +40,7 @@ namespace BoilerplatePro.Base.Geography.Services
         public Task<T> GetCountry<T>(string id) where T : CountryOutput
         {
             return Countries.Where(x => x.Iso2 == id)
+                .AsNoTracking()
                 .ProjectTo<T>(ProjectionMapping)
                 .AsNoTracking()
                 .FirstOrDefaultAsync();

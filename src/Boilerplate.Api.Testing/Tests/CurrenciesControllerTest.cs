@@ -26,7 +26,7 @@ public class CurrenciesControllerTest : BaseApiTest, ICurrenciesController
         public async Task CanGetCurrencies()
         {
             var result = await GetCurrencies(new CurrencyFilters(), new PagingQuery());
-            Assert.AreEqual(178, result.TotalItems);
+            Assert.That(178, Is.EqualTo(result.TotalItems));
         }
     }
 
@@ -37,7 +37,7 @@ public class CurrenciesControllerTest : BaseApiTest, ICurrenciesController
         public async Task CanGetCurrency()
         {
             var currency = await GetCurrency("USD");
-            Assert.AreEqual(1, currency.Countries.Count);
+            Assert.That(1, Is.EqualTo(currency.Countries.Count));
         }
     }
     public Task<PagedList<CurrencyOutput>> GetCurrencies(CurrencyFilters filters, PagingQuery paging)

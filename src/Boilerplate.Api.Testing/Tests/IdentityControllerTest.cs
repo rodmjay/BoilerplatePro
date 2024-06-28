@@ -21,9 +21,9 @@ public class IdentityControllerTest : BaseApiTest, IIdentityController
         public async Task CanGetIdentity()
         {
             var result = await GetCurrentIdentity();
-            Assert.IsNotNull(result);
+            Assert.That(result, Is.Not.Null);
 
-            Assert.IsTrue(result.ContainsKey("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"));
+            Assert.That(result.ContainsKey("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"), Is.True);
         }
     }
     public async Task<Dictionary<string, List<string>>> GetCurrentIdentity()

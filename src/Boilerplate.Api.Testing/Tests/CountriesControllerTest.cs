@@ -4,6 +4,7 @@ using BoilerplatePro.Base.Common.Helpers;
 using BoilerplatePro.Base.Common.Models;
 using BoilerplatePro.Base.Geography.Models;
 using BoilerplatePro.Testing.TestCaseSources;
+using Moq;
 using NUnit.Framework;
 
 namespace Boilerplate.Api.Testing.Tests
@@ -19,7 +20,7 @@ namespace Boilerplate.Api.Testing.Tests
             {
                 var countries = await GetCountries(new CountryFilters(), new PagingQuery());
 
-                Assert.IsNotNull(countries);
+                Assert.That(countries, Is.Not.Null);
             }
         }
 
@@ -31,9 +32,9 @@ namespace Boilerplate.Api.Testing.Tests
             {
                 var country = await GetCountry(iso2);
 
-                Assert.IsNotNull(country);
+                Assert.That(country, Is.Not.Null);
 
-                Assert.AreEqual(count, country.StateProvinces.Count);
+                Assert.That(count, Is.EqualTo(country.StateProvinces.Count));
             }
         }
 
@@ -44,8 +45,8 @@ namespace Boilerplate.Api.Testing.Tests
             public async Task CanEnableCountry()
             {
                 var result = await EnableCountry("US");
-                Assert.IsNotNull(result);
-                Assert.IsTrue(result.Succeeded);
+                Assert.That(result, Is.Not.Null);
+                Assert.That(result.Succeeded, Is.True);
 
             }
         }
@@ -57,11 +58,11 @@ namespace Boilerplate.Api.Testing.Tests
             public async Task CanDisableCountry()
             {
                 var enabledResult = await EnableCountry("US");
-                Assert.IsTrue(enabledResult.Succeeded);
+                Assert.That(enabledResult.Succeeded, Is.True);
 
                 var result = await DisableCountry("US");
-                Assert.IsNotNull(result);
-                Assert.IsTrue(result.Succeeded);
+                Assert.That(result, Is.Not.Null);
+                Assert.That(result.Succeeded, Is.True);
             }
         }
 

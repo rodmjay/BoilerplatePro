@@ -25,7 +25,7 @@ public class LanguagesControllerTest : BaseApiTest, ILanguagesController
         {
             var result = await GetLanguages(new LanguageFilters(), new PagingQuery());
 
-            Assert.AreEqual(185, result.TotalItems);
+            Assert.That(185, Is.EqualTo(result.TotalItems));
         }
     }
 
@@ -37,7 +37,7 @@ public class LanguagesControllerTest : BaseApiTest, ILanguagesController
         {
             var result = await GetLanguage(language);
 
-            Assert.AreEqual(countries, result.Countries.Count);
+            Assert.That(countries, Is.EqualTo(result.Countries.Count));
         }
     }
 

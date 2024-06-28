@@ -28,7 +28,7 @@ public class TimezonesControllerTest : BaseApiTest, ITimezonesController
         {
             var timezones = await GetTimezones(new TimezoneFilters(), new PagingQuery());
 
-            Assert.AreEqual(200, timezones.TotalItems);
+            Assert.That(200, Is.EqualTo(timezones.TotalItems));
         }
     }
     public Task<PagedList<TimezoneOutput>> GetTimezones(TimezoneFilters filters, PagingQuery paging)

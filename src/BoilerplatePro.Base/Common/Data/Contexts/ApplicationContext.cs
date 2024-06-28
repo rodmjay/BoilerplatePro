@@ -57,6 +57,7 @@ namespace BoilerplatePro.Base.Common.Data.Contexts
         public DbSet<DeviceFlowCodes> DeviceFlowCodes { get; set; }
         public DbSet<Key> Keys { get; set; }
         public DbSet<ServerSideSession> ServerSideSessions { get; set; }
+        public DbSet<PushedAuthorizationRequest> PushedAuthorizationRequests { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

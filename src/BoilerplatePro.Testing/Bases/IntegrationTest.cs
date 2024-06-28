@@ -105,7 +105,7 @@ public abstract class IntegrationTest<TFixture, TStartup> where TStartup : class
     {
         var content = input.SerializeToUTF8Json();
         var response = await ApiClient.PostAsync(url, content);
-        Assert.True(response.IsSuccessStatusCode);
+        Assert.That(response.IsSuccessStatusCode, Is.True);
 
         var result = response.Content.DeserializeObject<TOutput>();
         return result;
@@ -116,7 +116,7 @@ public abstract class IntegrationTest<TFixture, TStartup> where TStartup : class
         var content = input.SerializeToUTF8Json();
 
         var response = await ApiClient.PatchAsync(url, content);
-        Assert.True(response.IsSuccessStatusCode);
+        Assert.That(response.IsSuccessStatusCode, Is.True);
 
         var result = response.Content.DeserializeObject<TOutput>();
 
@@ -126,7 +126,7 @@ public abstract class IntegrationTest<TFixture, TStartup> where TStartup : class
     protected async Task<TOutput> DoPatch<TOutput>(string url)
     {
         var response = await ApiClient.PatchAsync(url, null);
-        Assert.True(response.IsSuccessStatusCode);
+        Assert.That(response.IsSuccessStatusCode, Is.True);
 
         var result = response.Content.DeserializeObject<TOutput>();
 
@@ -141,7 +141,7 @@ public abstract class IntegrationTest<TFixture, TStartup> where TStartup : class
     private async Task<TOutput> DoGet<TOutput>(HttpClient client, string url)
     {
         var response = await ApiClient.GetAsync(url);
-        Assert.True(response.IsSuccessStatusCode);
+        Assert.That(response.IsSuccessStatusCode, Is.True);
 
         var result = response.Content.DeserializeObject<TOutput>();
 
@@ -157,7 +157,7 @@ public abstract class IntegrationTest<TFixture, TStartup> where TStartup : class
     {
         var content = input.SerializeToUTF8Json();
         var response = await ApiClient.PutAsync(url, content);
-        Assert.True(response.IsSuccessStatusCode);
+        Assert.That(response.IsSuccessStatusCode, Is.True);
 
         var result = response.Content.DeserializeObject<TOutput>();
         return result;
@@ -166,7 +166,7 @@ public abstract class IntegrationTest<TFixture, TStartup> where TStartup : class
     protected async Task<TOutput> DoDelete<TOutput>(string url)
     {
         var response = await ApiClient.DeleteAsync(url);
-        Assert.True(response.IsSuccessStatusCode);
+        Assert.That(response.IsSuccessStatusCode, Is.True);
 
         var result = response.Content.DeserializeObject<TOutput>();
         return result;
